@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+.light-bg-gradient {
+  background: linear-gradient(135deg, #1e3aff, #3a1a72, #b932d1);
+  background-size: 400%;
+  animation: rotateGradient 8s ease infinite;
+}
+
+.dark-bg-gradient {
+  background: linear-gradient(135deg, #0b0f3a, #1d0a4f, #3e0f73);
+  background-size: 400%;
+  animation: rotateGradient 8s ease infinite;
+}
+
+
+
+@keyframes rotateGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

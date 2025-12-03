@@ -4,17 +4,19 @@ import logo from "../assets/cloudy.png";
 import { ThemeContext } from "../context/ThemeContext";
 import axios from "axios";
 import { WeatherContext } from "../context/WeatherContext";
+import { WeatherCurrentContext } from "../context/WeatherCurrentContext";
 
 const Header = ({ loadingLocation, setLoadingLocation }) => {
   const { darkMode, toggleTheme } = useContext(ThemeContext);
-  const { setCity, getForecast, city: contextCity } = useContext(WeatherContext);
+  const {  getForecast,  } = useContext(WeatherContext);
+  const {  getCurrentWeather  } = useContext(WeatherCurrentContext);
 
   const [search, setSearch] = useState("");
   const [debouncedSearch, setDebouncedSearch] = useState(search);
 
   // Debounce search input
   useEffect(() => {
-    const handler = setTimeout(() => setDebouncedSearch(search), 500); // wait 500ms after last keystroke
+    const handler = setTimeout(() => setDebouncedSearch(search), 700); // wait 500ms after last keystroke
     return () => clearTimeout(handler);
   }, [search]);
 
@@ -25,10 +27,11 @@ const Header = ({ loadingLocation, setLoadingLocation }) => {
     }
   }, [debouncedSearch]);
 
-  const handleSearchSubmit = async (cityName) => {
-    setCity(cityName);        // update context
-    await getForecast(cityName); // fetch forecast for this city
+  const handleSearchSubmit = async (cityName) => {    
+    await getForecast(cityName); 
+    await getCurrentWeather(cityName)
   };
+  
 
   // Fetch current location
   const fetchCity = () => {
@@ -94,7 +97,7 @@ const Header = ({ loadingLocation, setLoadingLocation }) => {
             onClick={fetchCity}
             disabled={loadingLocation}
             className={`p-1 lg:p-2 rounded-full bg-white/10 border border-white/20 backdrop-blur-md hover:scale-105 active:scale-95 transition-all duration-300 ${loadingLocation ? "opacity-50 cursor-not-allowed" : ""}`}
-            title={contextCity ? `Current city: ${contextCity}` : "Get current city"}
+            title={debouncedSearch ? `Current city: ${debouncedSearch}` : "Get current city"}
           >
             <MapPin className="text-green-400 size-6 lg:size-6" />
           </button>

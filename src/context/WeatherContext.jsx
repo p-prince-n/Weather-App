@@ -6,12 +6,11 @@ export const WeatherContext = createContext();
 
 export const WeatherProvider = ({ children }) => {
   const [forecast, setForecast] = useState(null);
-  const [city, setCity] = useState("");
   const [forecastLoading, setForecastLoading] = useState(false);
 
   const API_KEY = import.meta.env.VITE_OPEN_WEATHER_MAP_API_KEY;
 
-  const getForecast = async () => {
+  const getForecast = async (city) => {
     if (!city) return;
 
     setForecastLoading(true);
@@ -60,7 +59,7 @@ export const WeatherProvider = ({ children }) => {
 
   return (
     <WeatherContext.Provider
-      value={{ city, setCity, forecast, getForecast, forecastLoading }}
+      value={{  forecast, getForecast, forecastLoading }}
     >
       {children}
     </WeatherContext.Provider>

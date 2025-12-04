@@ -14,13 +14,11 @@ const Header = ({ loadingLocation, setLoadingLocation }) => {
   const [search, setSearch] = useState("");
   const [debouncedSearch, setDebouncedSearch] = useState(search);
 
-  // Debounce search input
   useEffect(() => {
-    const handler = setTimeout(() => setDebouncedSearch(search), 700); // wait 500ms after last keystroke
+    const handler = setTimeout(() => setDebouncedSearch(search), 700); 
     return () => clearTimeout(handler);
   }, [search]);
 
-  // Automatically submit when user stops typing
   useEffect(() => {
     if (debouncedSearch.trim()) {
       handleSearchSubmit(debouncedSearch.trim());

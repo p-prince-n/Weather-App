@@ -32,19 +32,19 @@ export const WEATHER_ICONS = [
 ];
 
 export const WEATHER_IMG_LIST = [
-  { key: "Thunderstorm", icon: new URL("../assets/weather/thunderstorm.png", import.meta.url).href, label: "Thunderstorm" },
-  { key: "Drizzle",     icon: new URL("../assets/weather/drizzle.png", import.meta.url).href, label: "Drizzle" },
-  { key: "Rain",        icon: new URL("../assets/weather/rain.png", import.meta.url).href, label: "Rain" },
-  { key: "Snow",        icon: new URL("../assets/weather/snow.png", import.meta.url).href, label: "Snow" },
-  { key: "Mist",        icon: new URL("../assets/weather/mist.png", import.meta.url).href, label: "Mist" },
-  { key: "Smoke",       icon: new URL("../assets/weather/smoke.png", import.meta.url).href, label: "Smoke" },
-  { key: "Haze",        icon: new URL("../assets/weather/haze.png", import.meta.url).href, label: "Haze" },
-  { key: "Dust",        icon: new URL("../assets/weather/dust.png", import.meta.url).href, label: "Dust" },
-  { key: "Fog",         icon: new URL("../assets/weather/fog.png", import.meta.url).href, label: "Fog" },
-  { key: "Sand",        icon: new URL("../assets/weather/sand.png", import.meta.url).href, label: "Sand" },
-  { key: "Ash",         icon: new URL("../assets/weather/ash.png", import.meta.url).href, label: "Ash" },
-  { key: "Squall",      icon: new URL("../assets/weather/squall.png", import.meta.url).href, label: "Squall" },
-  { key: "Tornado",     icon: new URL("../assets/weather/tornado.png", import.meta.url).href, label: "Tornado" },
-  { key: "Clear",       icon: new URL("../assets/weather/clear.png", import.meta.url).href, label: "Clear" },
-  { key: "Clouds",      icon: new URL("../assets/weather/clouds.png", import.meta.url).href, label: "Clouds" }
+  { key: "Thunderstorm", icon: "/weather/thunderstorm.png", label: "Thunderstorm" },
+  { key: "Drizzle",     icon: "/weather/drizzle.png", label: "Drizzle" },
+  { key: "Rain",        icon: "/weather/rain.png", label: "Rain" },
+  { key: "Snow",        icon: "/weather/snow.png", label: "Snow" },
+  { key: "Mist",        icon: "/weather/mist.png", label: "Mist" },
+  { key: "Smoke",       icon: "/weather/smoke.png", label: "Smoke" },
+  { key: "Haze",        icon: "/weather/haze.png", label: "Haze" },
+  { key: "Dust",        icon: "/weather/dust.png", label: "Dust" },
+  { key: "Fog",         icon: "/weather/fog.png", label: "Fog" },
+  { key: "Sand",        icon: "/weather/sand.png", label: "Sand" },
+  { key: "Ash",         icon: "/weather/ash.png", label: "Ash" },
+  { key: "Squall",      icon: "/weather/squall.png", label: "Squall" },
+  { key: "Tornado",     icon: "/weather/tornado.png", label: "Tornado" },
+  { key: "Clear",       icon: "/weather/clear.png", label: "Clear" },
+  { key: "Clouds",      icon: "/weather/clouds.png", label: "Clouds" }
 ];

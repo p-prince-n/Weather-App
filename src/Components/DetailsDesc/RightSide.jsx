@@ -16,8 +16,8 @@ const RightSide = () => {
   const { currentWeather } = useContext(WeatherCurrentContext);
   const weatherMain = currentWeather?.main;
   return (
-    <div className="flex flex-col items-center justify-center border rounded-xl shadow-2xl bg-black/20 border-gray-900 p-5">
-      <div className="grid grid-cols-2 grid-rows-2 place-content-center place-items-center gap-x-5 gap-y-16 px-7">
+    <div className="flex w-[280px] md:w-[380px] h-[260px] flex-col items-center justify-center border rounded-xl shadow-2xl bg-black/20 border-gray-900 p-5">
+      <div className="grid grid-cols-2 grid-rows-2 place-content-center place-items-center gap-x-5 gap-y-16 px-7 lg:px-0">
         <div className="flex flex-col items-center justify-center gap-2 ">
           <div className="flex items-center justify-center">
             <Droplets className="size-8" />

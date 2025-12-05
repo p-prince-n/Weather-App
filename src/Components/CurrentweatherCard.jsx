@@ -15,9 +15,9 @@ const CurrentweatherCard = () => {
   return (
     <div className="
       backdrop-blur-2xl bg-white/15 border border-gray-500 shadow-xl rounded-xl
-      px-5 py-3 lg:px-10 lg:py-4
+      px-5  py-3 lg:px-10 lg:py-4
       flex flex-col items-center justify-center text-center
-      w-full md:w-82 lg:w-80      
+      w-full lg:w-80      
       h-72 md:h-90 lg:h-72                      
     ">
       <h1 className="text-lg md:text-2xl font-bold">

@@ -2,6 +2,16 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none; 
+  scrollbar-width: none; 
+}
+
 .light-bg-gradient {
   background: linear-gradient(135deg, #1e3aff, #3a1a72, #b932d1);
   background-size: 400%;

@@ -45,9 +45,39 @@ export const WeatherCurrentProvider = ({ children }) => {
     }
   };
 
+
+  const getWeatherByCoords = async (lat, lon) => {
+  setWeatherLoading(true);
+  try {
+    const res = await axios.get(
+      `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`
+    );
+
+    const data = res.data;
+
+    const weatherModel = {
+      id: data.id,
+      name: data.name,
+      country: data.sys.country,
+      main: data.main,
+      weather: data.weather,
+      wind: data.wind,
+      visibility: data.visibility,
+      dt: data.dt,
+    };
+
+    setCurrentWeather(weatherModel);
+    return data.name; 
+  } catch (error) {
+    console.error("Error fetching current location weather:", error);
+  } finally {
+    setWeatherLoading(false);
+  }
+};
+
   return (
     <WeatherCurrentContext.Provider
-      value={{ currentWeather, getCurrentWeather, weatherLoading }}
+      value={{ currentWeather, getCurrentWeather, weatherLoading , getWeatherByCoords }}
     >
       {children}
     </WeatherCurrentContext.Provider>

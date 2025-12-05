@@ -1,16 +1,35 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { WeatherContext } from "./context/WeatherContext";
 import Header from "./Components/Header";
 import { ThemeContext } from "./context/ThemeContext";
 import CurrentweatherCard from "./Components/CurrentweatherCard";
 import DetailsDescPage from "./Components/DetailsDescPage";
+import ForecasteNextdays from "./Components/ForecasteNextdays";
+import HourlyForecast from "./Components/HourlyForecast";
+import LoaderIcon from "./Components/LoaderIcon";
+import { WeatherCurrentContext } from "./context/WeatherCurrentContext";
 
 function App() {
   const [loadingLocation, setLoadingLocation] = useState(false);
-  const { city, forecast, getForecast, forecastLoading } =
+  const { forecast, forecastLoading, getForecastByCoords } =
     useContext(WeatherContext);
+    const { getWeatherByCoords } = useContext(WeatherCurrentContext);
   const { darkMode } = useContext(ThemeContext);
-  const currentTempDet = forecast && forecast.list[0];
+ 
+
+useEffect(() => {
+    navigator.geolocation.getCurrentPosition(
+      pos => {
+        const { latitude, longitude } = pos.coords;
+
+        getWeatherByCoords(latitude, longitude).then(city => {
+          getForecastByCoords(latitude, longitude);
+        });
+      },
+      error => console.log("Location blocked  ", error)
+    );
+  }, []);
+
 
   return (
     <div
@@ -26,24 +45,33 @@ function App() {
         />
       </div>
 
-      {/* Gap so content doesn't hide behind header */}
+    
       <div className="mt-4 p-4 text-white">
         {loadingLocation ? (
           <div className="flex items-center justify-center mt-6 text-white text-lg">
-            Loading current city...
+            <LoaderIcon />
           </div>
         ) : (
           <>
-            {forecastLoading && <div>Forecast Loading...</div>}
+            {forecastLoading && <div className="flex items-center justify-center mt-6 text-white text-lg" > <LoaderIcon /></div>}
 
             {!forecastLoading &&
               (forecast ? (
-                <div className="flex flex-col md:flex-row px-3 md:px-6 xl:px-10 2xl:px-30 gap-5 xl:gap-10">
-                  <CurrentweatherCard />
-                  <DetailsDescPage />
+                <div className="flex flex-col gap-5">
+                  <div className="flex flex-col lg:flex-row px-3 md:px-6 xl:px-10 2xl:px-30 gap-5 xl:gap-10">
+                    <CurrentweatherCard />
+                    <DetailsDescPage />
+                  </div>
+                  <div className="flex flex-col lg:flex-row px-3 md:px-6 xl:px-10 2xl:px-30 gap-5 xl:gap-10">
+                    <ForecasteNextdays />
+                    <HourlyForecast/>
+                  </div>
                 </div>
               ) : (
-                <p>Search a city or click the location icon to get current city forecast.</p>
+                <p>
+                  Search a city or click the location icon to get current city
+                  forecast.
+                </p>
               ))}
           </>
         )}

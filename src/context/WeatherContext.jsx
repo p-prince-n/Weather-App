@@ -57,9 +57,34 @@ export const WeatherProvider = ({ children }) => {
     }
   };
 
+  const getForecastByCoords = async (lat, lon) => {
+  setForecastLoading(true);
+  try {
+    const res = await axios.get(
+      `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`
+    );
+
+    const data = res.data;
+
+    const dataModel = {
+      ...ForecastModel,
+      city: data.city,
+      list: data.list,
+      cnt: data.cnt,
+    };
+
+    setForecast(dataModel);
+  } catch (error) {
+    console.error("Error fetching forecast coords:", error);
+  } finally {
+    setForecastLoading(false);
+  }
+};
+
+
   return (
     <WeatherContext.Provider
-      value={{  forecast, getForecast, forecastLoading }}
+      value={{  forecast, getForecast, forecastLoading, getForecastByCoords }}
     >
       {children}
     </WeatherContext.Provider>

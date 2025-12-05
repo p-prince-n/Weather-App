@@ -32,19 +32,19 @@ export const WEATHER_ICONS = [
 ];
 
 export const WEATHER_IMG_LIST = [
-  { key: "Thunderstorm", icon: "/weather/thunderstorm.png", label: "Thunderstorm" },
-  { key: "Drizzle",     icon: "/weather/drizzle.png", label: "Drizzle" },
-  { key: "Rain",        icon: "/weather/rain.png", label: "Rain" },
-  { key: "Snow",        icon: "/weather/snow.png", label: "Snow" },
-  { key: "Mist",        icon: "/weather/mist.png", label: "Mist" },
-  { key: "Smoke",       icon: "/weather/smoke.png", label: "Smoke" },
-  { key: "Haze",        icon: "/weather/haze.png", label: "Haze" },
-  { key: "Dust",        icon: "/weather/dust.png", label: "Dust" },
-  { key: "Fog",         icon: "/weather/fog.png", label: "Fog" },
-  { key: "Sand",        icon: "/weather/sand.png", label: "Sand" },
-  { key: "Ash",         icon: "/weather/ash.png", label: "Ash" },
-  { key: "Squall",      icon: "/weather/squall.png", label: "Squall" },
-  { key: "Tornado",     icon: "/weather/tornado.png", label: "Tornado" },
-  { key: "Clear",       icon: "/weather/clear.png", label: "Clear" },
-  { key: "Clouds",      icon: "/weather/clouds.png", label: "Clouds" }
+  { key: "Thunderstorm", icon: "/assets/weather/Thunderstorm.png", label: "Thunderstorm" },
+  { key: "Drizzle",     icon: "/assets/weather/Drizzle.png", label: "Drizzle" },
+  { key: "Rain",        icon: "/assets/weather/Rain.png", label: "Rain" },
+  { key: "Snow",        icon: "/assets/weather/Snow.png", label: "Snow" },
+  { key: "Mist",        icon: "/assets/weather/Mist.png", label: "Mist" },
+  { key: "Smoke",       icon: "/assets/weather/Smoke.png", label: "Smoke" },
+  { key: "Haze",        icon: "/assets/weather/Haze.png", label: "Haze" },
+  { key: "Dust",        icon: "/assets/weather/Dust.png", label: "Dust" },
+  { key: "Fog",         icon: "/assets/weather/Fog.png", label: "Fog" },
+  { key: "Sand",        icon: "/assets/weather/Sand.png", label: "Sand" },
+  { key: "Ash",         icon: "/assets/weather/Ash.png", label: "Ash" },
+  { key: "Squall",      icon: "/assets/weather/Squall.png", label: "Squall" },
+  { key: "Tornado",     icon: "/assets/weather/Tornado.png", label: "Tornado" },
+  { key: "Clear",       icon: "/assets/weather/Clear.png", label: "Clear" },
+  { key: "Clouds",      icon: "/assets/weather/Clouds.png", label: "Clouds" }
 ];

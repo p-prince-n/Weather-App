@@ -57,7 +57,7 @@ useEffect(() => {
 
             {!forecastLoading &&
               (forecast ? (
-                <div className="flex flex-col gap-5">
+                <div className="flex flex-col items-center justify-center gap-5">
                   <div className="flex flex-col lg:flex-row px-3 md:px-6 xl:px-10 2xl:px-30 gap-5 xl:gap-10">
                     <CurrentweatherCard />
                     <DetailsDescPage />
